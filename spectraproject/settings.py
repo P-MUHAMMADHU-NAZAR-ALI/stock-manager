@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-vd!oyfy&#-(z+@rev4j3$z3286^-m3fge@3wc972hf9%gxt6e@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = ['spectraMed.onrender.com','localhost','127.0.0.1']
 
 
 # Application definition
