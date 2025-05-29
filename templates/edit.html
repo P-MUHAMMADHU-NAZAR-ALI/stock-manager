@@ -1,0 +1,37 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Update Category</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}"/>  
+</head>  
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">  
+    <form method="POST" class="post-form" action="/category_update/{{category.id}}/" style="height: 300px; width: 350px; border-style: ridge; padding: 20px; box-sizing: border-box;">  
+        {% csrf_token %}  
+        <div class="container">  
+            <br>  
+            <div class="form-group row"style="display: flex; margin-top: 0px;">  
+                
+                <div class="col-sm-4" style="text-align: center; width: 100%;" >  
+                    <h2>Update Details</h2>  
+                </div>  
+            </div>  
+            <br>
+            <div class="form-group row" style="display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">  
+                <label class="col-sm-2 col-form-label" style="font-size:20px;">Category name:</label>  
+                <div class="col-sm-4">  
+                    <input type="text" name="name" id="id_name" required maxlength="20" value="{{ category.name }}"/>  
+                </div>  
+            </div> 
+            <br> 
+            <div class="form-group row">  
+                <label class="col-sm-1 col-form-label"></label>  
+                <div class="col-sm-4">  
+                    <button type="submit" class="btn btn-success" style="display: block; width: 70px; margin-left:120px;">Update </button>  
+                </div>  
+            </div>  
+        </div>  
+    </form>  
+</body>  
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}"/>  
+</head>  
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">  
+<form method="POST" class="post-form" action="/subcategory_update/{{subcategory.id}}/" style="height: 300px; width: 450px; border-style: ridge; padding: 20px; box-sizing: border-box;">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+  <div class="form-group row" style="display: flex; margin-top: 0px;">
+    <div class="col-sm-4" style="text-align: center; width: 100%;" >  
+    <h3>Update Details</h3>  
+    </div>  
+  </div>  
+  <div class="form-group row" style="display: flex; margin-bottom: 15px;">
+    <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">category name:</label>
+    <div class="col-sm-2" style="width: auto;">
+        <select name="category" class="form-control" style="font-size: 15px; width: auto;">
+            <option value="{{subcategory.category.id}}">{{subcategory.category.name}}</option>
+            {% for i in category %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+  <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+    <label class="col-sm-2 col-form-label" style="font-size: 20px;">subcategory Name:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="subcategory" id="id_ename" required maxlength="100" value="{{subcategory.subcategory }}"/>  
+    </div>  
+  </div>  
+    <div class="form-group row" style="display: flex; justify-content: center; margin-bottom: 15px;">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4"  style="text-align: center; width: 100%;">  
+    <button type="submit" class="btn btn-success" style="display: block; width: 70px; margin-left:140px;">Update</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  

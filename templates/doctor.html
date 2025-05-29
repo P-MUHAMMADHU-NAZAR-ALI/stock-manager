@@ -1,0 +1,45 @@
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+
+            
+                <form action="/doctor/" method="POST" style="font-size:15px;">
+                    {% csrf_token %}
+                    <div class="form-group" style="margin-top:20px; border-style:ridge;height:600px;width:450px;border-radius:20px;margin-left:300px;">
+                        <a href="{% url 'doctorlist'%}" style="color:white;"><button class="btn-hover color-3" style="width:150px;margin-left:250px;">Doctor List</a></button>
+                        <br>
+                        <label for=""style="margin-left:20px;">Doctor name:</label>
+                        <input type="text" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the doctor name" name="doctorname">
+                        
+                        <label for="" style="margin-left:20px;">Registration No:</label>
+                        <input type="text" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the Reg No" name="regno">
+                        
+                        <label for="" style="margin-left:20px;">GST NO:</label>
+                        <input type="text" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the Gst No" name="gstno">
+                        
+                        <label for="" style="margin-left:20px;">Phone No:</label>
+                        <input type="text" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the Phone  No" name="phoneno">
+                        
+                        <label for="" style="margin-left:20px;">Gmail id:</label>
+                        <input type="gmail" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the gmail id" name="gmail">
+                        
+                        <label for="" style="margin-left:20px;">Address:</label>
+                        <br>
+                    
+                        <textarea id="" rows="5" style="margin-left:50px;border-radius:10px;" name="address"></textarea>
+                        <br>
+                        
+                        <button class="btn-hover color-5" style="width:100px;margin-left:150px;">SAVE</button>
+                        
+
+                        
+
+                       
+                    
+                    </div>
+                </form>
+{% endblock %}
+        
+
+
+    

@@ -1,0 +1,80 @@
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+
+                     
+                <form action=""method="POST" style="width:1200px;">
+                    {% csrf_token %}
+                    <div class="from-group" style="margin-top:20px;margin-left:10px;">
+                        <a href="{% url 'cat'%}" style="color:white;"><button class="btn-hover color-3" style="width:150px;margin-left:900px;">+Add category</a></button>
+                    
+                        <div class="search-container">
+                            <input type="text" id="search" class="search-input" placeholder="Search...">
+                            <button onclick="performSearch()" class="search-button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+            
+                      
+                        <table class="table table-bordered table-hover" style="width:98%;margin:auto">
+                            <tr style="background-color:black;color:white;font-size:15px;">
+                                
+                                <th>S.NO</th>
+                                <th>Name</th>
+                            </tr>
+
+                        </thead>
+                            <tbody id="product-table-body">
+                            {% for i in category %}
+                            <tr class="product-row">
+                                <td class="serial-number">{{i.id}}</td> 
+                                <td>{{i.name }}</td>
+                                <td>
+                                        <!-- Edit button triggers a form submission -->
+                                        <form method="POST" style="display:inline;">
+                                            {% csrf_token %}
+                                            <button class="btn btn-info"><a href ="/category_edit/{{i.id}}">EDIT</a></button>
+                                        </form>
+                                        <!-- Delete button -->
+                                        <form method="POST" action="{% url 'category' %}" style="display:inline;">
+                                            {% csrf_token %}
+                                            <button class="btn btn-danger"><a href="/delete/{{i.id}}" style="color:white;">Delete</a></button>
+                                            {% comment %} <a href="/delete/{{i.id}}">Delete</a> {% endcomment %}
+                                        </form>
+                                    </td>
+                            </tr>
+                            {% endfor %}
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+                    
+<script>
+    // JavaScript to handle the search functionality
+    document.getElementById('search').addEventListener('keyup', function() {
+        var input = document.getElementById('search').value.toLowerCase();
+        var rows = document.getElementsByClassName('product-row');
+        
+        Array.from(rows).forEach(function(row) {
+            var rowData = row.textContent.toLowerCase();
+            if (rowData.includes(input)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
+    function updateSerialNumbers() {
+        var rows = document.querySelectorAll('.product-row');
+        var serialNumber = 1;
+        rows.forEach(function(row) {
+            if (row.style.display !== 'none') {
+                row.querySelector('.serial-number').textContent = serialNumber++;
+            }
+        });
+    }
+    updateSerialNumbers();
+</script>
+
+{% endblock %}

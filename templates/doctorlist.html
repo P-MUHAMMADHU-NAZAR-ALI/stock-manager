@@ -1,0 +1,80 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+    <form class="" style="margin-top:20px; margin-left:20px;">
+        <a href="{% url 'doctor' %}" style="color:white;">
+            <button type="button" class="btn-hover color-3" style="width:150px; margin-left:900px;">+Add Doctors</button>
+        </a>
+
+        <div class="search-container">
+            <input type="text" id="search" class="search-input" placeholder="Search...">
+            <button type="button" class="search-button">
+                <svg width="16" height="16" viewBox="0 0 24 24">
+                    <path d="M21 19l-5.5-5.5C16.34 12.13 17 10.63 17 9a8 8 0 1 0-8 8c1.63 0 3.13-.66 4.5-1.5L19 21l2-2zM9 15a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
+                </svg>
+            </button>
+        </div>
+
+        <table class="table table-bordered table-hover" style="width:98%; margin:auto">
+            <thead>
+                <tr style="background-color:black; color:white;">
+                    <th>S.NO</th>
+                    <th>Doctor Name</th>
+                    <th>Register Number</th>
+                    <th>GST No</th>
+                    <th>Phone Number</th>
+                    <th>Gmail id</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="product-table-body">
+                {% for i in doctor %}
+                    <tr class="product-row">
+                        <td class="serial-number">{{i.id}}</td> 
+                        <td>{{ i.doctorname }}</td>
+                        <td>{{ i.regno }}</td>
+                        <td>{{ i.gstno }}</td>
+                        <td>{{ i.phoneno }}</td>
+                        <td>{{ i.gmail }}</td>
+                        <td>{{ i.address }}</td>
+                        <td>
+                            <a href="/doctor_edit/{{ i.id }}" class="btn btn-info">EDIT</a>
+                            <form method="POST" action="/Doctordelete/{{ i.id }}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger" style="color:white;">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+
+    <script>
+        // JavaScript to handle the search functionality
+        document.getElementById('search').addEventListener('keyup', function() {
+            var input = this.value.toLowerCase();
+            var rows = document.getElementsByClassName('product-row');
+
+            Array.from(rows).forEach(function(row) {
+                var rowData = row.textContent.toLowerCase();
+                if (rowData.includes(input)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+        function updateSerialNumbers() {
+            var rows = document.querySelectorAll('.product-row');
+            var serialNumber = 1;
+            rows.forEach(function(row) {
+                if (row.style.display !== 'none') {
+                    row.querySelector('.serial-number').textContent = serialNumber++;
+                }
+            });
+        }
+        updateSerialNumbers();
+    </script>
+{% endblock %}

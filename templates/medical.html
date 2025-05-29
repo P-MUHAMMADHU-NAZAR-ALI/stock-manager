@@ -1,0 +1,33 @@
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+
+                <form action="/medical/" method="POST">
+                    {%csrf_token %}
+                    <div class="form-group" style="margin-top:10px; border-style:ridge;height:625px;width:500px;border-radius:20px;font-size:15px;margin-left:300px;">
+                        <a href="{% url 'medicallist'%}" style="color:white;"><button class="btn-hover color-3" style="width:150px;margin-left:320px;margin-top:10px;">Medical List</a></button>
+                        
+                        <label for=""style="margin-left:20px;">Medical name:</label>
+                        <input type="text" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the doctor name" name="medicalname">
+                        <br>
+                        <label for="" style="margin-left:20px;">GST NO:</label>
+                        <input type="text" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the Gst No" name="gstno">
+                        <br>
+                        <label for="" style="margin-left:20px;">Phone No:</label>
+                        <input type="text" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the Phone  No" name="phoneno">
+                        <br>
+                        <label for="" style="margin-left:20px;">Gmail id:</label>
+                        <input type="gmail" class="form-control"style="width:300px;margin-left:45px;" placeholder="enter the gmail id" name="gmail">
+                        <br>
+                        <label for="" style="margin-left:20px;">Address:</label>
+                        <br>
+                       
+                        <textarea name="address" id="" rows="5" style="margin-left:50px;border-radius:10px;"></textarea>
+                        
+                        <button class="btn-hover color-5" style="width:130px;margin-left:180px;">SAVE</button>
+                    
+                    </div>
+                </form>
+        
+{% endblock %}
+   

@@ -1,0 +1,34 @@
+{% load static %}
+<html>
+    <head>
+        <title>Spectra Login</title>
+        <link rel="icon" href="{% static 'assets/logo.jpg'%}">
+    
+        <link rel="stylesheet" href="{% static 'assets/nav.css' %}">
+        <link rel="stylesheet" href="{% static 'assets\bootstrap.min.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/responsive.css'%}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+
+
+        <div class="box" style="height:300px;width:340px;margin:auto;margin-top:100px;border-style:ridge;border-radius:20px;text-align:center;">
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <img src="{% static 'assets/logo.jpg' %}" alt="" class="img" style="height: 50px;width:80px;margin-top:10px;"><br>
+                <br>
+                <br>
+                <input type="text" placeholder="Username or email" style="height: 35px;width:250px;" required name="username">
+                <br>
+                <br>
+                <input type="password" placeholder="Password" style="height: 35px;width:250px;" name="password" required>
+                <br>
+                <br>
+                <br>
+                <button type="submit" style="background-color:blue;color:white;height:35px;width:250px;border-radius:20px;">Login</button>
+            </form>
+        </div>
+        
+    </body>
+</html>

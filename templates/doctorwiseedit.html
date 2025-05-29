@@ -1,0 +1,62 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Update Doctor-wise Sales</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}"/>  
+</head>  
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">  
+    <form method="POST" class="post-form" action="/doctorwisesales_update/{{doctorwisesales.id}}/" style="height: 400px; width: 450px; border-style: ridge; padding: 20px; box-sizing: border-box;">  
+        {% csrf_token %}  
+        <div class="container">  
+            <br>  
+            <div class="form-group row" style="display: flex; margin-top: 0px;">  
+                <div class="col-sm-4" style="text-align: center; width: 100%;">  
+                    <h3>Update Details</h3>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Doctor name:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <select name="doctorname" class="form-control" style="font-size: 15px; width: 100%;">  
+                        <option value="{{doctorwisesales.doctorname.id}}">{{doctorwisesales.doctorname.doctorname}}</option>  
+                        {% for i in doctorname %}  
+                            <option value="{{ i.id }}">{{ i.doctorname }}</option>  
+                        {% endfor %}  
+                    </select>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Product name:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <select name="productname" class="form-control" style="font-size: 15px; width: 100%;">  
+                        <option value="{{doctorwisesales.productname.id}}">{{doctorwisesales.productname.productname}}</option>  
+                        {% for i in productname %}  
+                            <option value="{{ i.id }}">{{ i.productname }}</option>  
+                        {% endfor %}  
+                    </select>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Quantity:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <input type="text" name="quantity" id="id_eemail" required maxlength="254" value="{{doctorwisesales.quantity}}" style="font-size: 15px; width: 100%;"/>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Price:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <input type="text" name="price" id="id_econtact" required maxlength="15" value="{{doctorwisesales.price}}" style="font-size: 15px; width: 100%;"/>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; justify-content: center; margin-bottom: 15px;">  
+                <label class="col-sm-1 col-form-label"></label>  
+                <div class="col-sm-4" style="text-align: center; width: 100%;">  
+                    <button type="submit" class="btn btn-success" style="display: block;  width: 90px; height:30px; margin-left: 140px;">Update</button>  
+                </div>  
+            </div>  
+        </div>  
+    </form>  
+</body>
+</html>

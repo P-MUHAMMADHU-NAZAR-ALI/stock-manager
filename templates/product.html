@@ -1,0 +1,49 @@
+
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+
+                <form action="/product/" method="POST" style="height:550px;width:660px;border-style:ridge;border-radius:20px; margin-top:20px;margin-left:300px;" >
+                    {%csrf_token%}
+                    <div class="form-group" style="margin-left:20px;">
+                        <a href="{% url 'productlist'%}" style="color:white;"><button class="btn-hover color-3" style="width:150px;margin-left:420px;">Product List</a></button>
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="font-size: 15px;margin-left:20px;">Category:</label>
+                        <select  id="" class="form-control" style="margin-left:20px;width:600px;" name="category">
+                        <option>select</option>
+                            {% for i in category %}
+                            <option value="{{ i.id }}">{{ i.name }}</option>
+                            {% endfor %}
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="font-size: 15px;margin-left:20px;">Sub category:</label>
+                        <select  id="" class="form-control" style="margin-left:20px;width:600px;" name="subcategory">
+                            <option>select</option>
+                            {% for i in subcategory %}
+                            <option value="{{ i.id }}">{{ i.subcategory }}</option>
+                            {% endfor %}
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="font-size: 15px;margin-left:20px;">Product Name:</label>
+                        <input type="text" class="form-control" placeholder="enter the product" style="margin-left:20px;width:600px;" name="productname">
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="font-size: 15px;margin-left:20px;">Price:</label>
+                        <input type="text" class="form-control" placeholder="enter the price" style="margin-left:20px;width:600px;" name="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="font-size: 15px;margin-left:20px;">Stock:</label>
+                        <input type="text" class="form-control" placeholder="Enter the Stock" style="margin-left:20px;width:600px;" name="stock">
+                    </div>
+                    <div class="from-group">
+                        <button  type="submit" class="btn-hover color-5" style="width:100px;margin-left:250px;">SAVE</button>
+                    </div>
+
+                    </div>
+                </form>
+{% endblock %}
+
+    

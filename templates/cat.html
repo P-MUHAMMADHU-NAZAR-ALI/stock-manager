@@ -1,0 +1,21 @@
+
+
+
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+<form action="/category/" method="POST"> 
+    {% csrf_token %}
+    <div class="form-group" 
+     style="border-style:ridge;height:250px;width:450px;border-radius:20px;margin-left:350px;margin-top:150px;" 
+    >
+        <br>
+        <br>
+        <br>
+        <label for=""style="margin-left:20px;font-size:20px;">Category Name:</label>
+        <input type="text" class="form-control" style="width:300px;margin-left:45px;height:30px;" name="name" placeholder="enter the category name">
+        <button type="submit" class="btn-hover color-5" style="margin-left:100px;width:100px;">SAVE</button>
+        <a href="{% url 'category'%}" style="color:white;"><button class="btn-hover color-5" style="width:100px;">Cancel</a></button>
+</form>
+</div>
+{% endblock %}

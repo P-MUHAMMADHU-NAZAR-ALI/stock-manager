@@ -1,0 +1,27 @@
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+
+                <form action="/subcategory/" method="POST"style="font-size:20px;height:325px;width:400px;border-style:ridge;margin-top:100px;margin-left:350px;border-radius:20px;">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <a href="{% url 'category'%}" style="color:white"><button class="btn-hover color-3" style="width:150px;margin-left:220px;">+Add Category</a></button>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="category" style="margin-left:20px;">Category</label>
+                        <select id="category" class="form-control" style="font-size:15px;margin-left:20px;width:350px;" name="category">
+                            <option value="">select</option>
+                            {% for i in category %}
+                            <option value="{{ i.id }}">{{ i.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <label for="" style="margin-left:20px;">Sub-Category</label>
+                    <input type="text" class="form-control" placeholder="Enter the Sub-Category" style="margin-left:20px;width:350px;" name="subcategory">
+                    <button class="btn-hover color-5" style="margin-left:100px;width:90px;">SAVE</button>
+                    <a href="{% url 'subcategory'%}" style="color:white;"><button class="btn-hover color-5" style="width:100px;">Cancel</a></button>
+                </div>
+            </form>
+{% endblock %}

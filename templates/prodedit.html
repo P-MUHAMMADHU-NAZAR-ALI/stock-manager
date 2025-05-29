@@ -1,0 +1,68 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}"/>  
+</head>  
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">  
+<form method="POST" class="post-form" action="/prod_update/{{productname.id}}/" style="height: 400px; width: 500px; border-style: ridge; padding: 20px; box-sizing: border-box;">  
+    {% csrf_token %}  
+    <div class="container">  
+        <br>  
+        <div class="form-group row" style="display: flex; margin-top: 0px;">  
+            <div class="col-sm-4" style="text-align: center; width: 100%;">  
+                <h3>Update Details</h3>  
+            </div>  
+        </div>  
+        <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+            <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Category:</label>  
+            <div class="col-sm-2" style="width: auto;">  
+                <select name="category" class="form-control" style="font-size: 15px; width: auto;">  
+                    <option value="{{productname.category.id}}">{{productname.category.name}}</option>  
+                    {% for i in category %}  
+                        <option value="{{ i.id }}">{{ i.name }}</option>  
+                    {% endfor %}  
+                </select>  
+            </div>  
+        </div>  
+        <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+            <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Subcategory:</label>  
+            <div class="col-sm-2" style="width: auto;">  
+                <select name="subcategory" class="form-control" style="font-size: 15px; width: auto;">  
+                    <option value="{{productname.subcategory.id}}">{{productname.subcategory.subcategory}}</option>  
+                    {% for i in subcategory %}  
+                        <option value="{{ i.id }}">{{ i.subcategory }}</option>  
+                    {% endfor %}  
+                </select>  
+            </div>  
+        </div>  
+        <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+            <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Product Name:</label>  
+            <div class="col-sm-2" style="width: auto;">  
+                <input type="text" name="productname" id="id_ename" required maxlength="100" value="{{productname.productname}}" style="font-size: 15px; width: 100%;"/>  
+            </div>  
+        </div>  
+        <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+          <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Stock:</label>  
+          <div class="col-sm-2" style="width: auto;">  
+              <input type="text" name="stock" id="id_eemail" required maxlength="254" value="{{productname.stock}}" style="font-size: 15px; width: 100%;"/>  
+          </div>  
+      </div> 
+        <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+            <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Price:</label>  
+            <div class="col-sm-2" style="width: auto;">  
+                <input type="text" name="price" id="id_econtact" required maxlength="15" value="{{ productname.price }}" style="font-size: 15px; width: 100%;"/>  
+            </div>  
+        </div>  
+        <div class="form-group row" style="display: flex; justify-content: center; margin-bottom: 15px;">  
+            <label class="col-sm-1 col-form-label"></label>  
+            <div class="col-sm-4" style="text-align: center; width: 100%;">  
+                <button type="submit" class="btn btn-success" style="display: block;  width: 90px; height:30px; margin-left: 140px;">Update</button>  
+            </div>  
+        </div>  
+    </div>  
+</form>  
+</body>  
+</html>  

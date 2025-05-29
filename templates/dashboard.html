@@ -1,0 +1,81 @@
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+            
+                <section id="content">
+                    <main>
+                        <div class="head-title">
+                            <div class="left">
+                                <h1>Dashboard</h1>
+                            </div>
+                        </div>
+                        <ul class="box-info">
+                            <li>
+                                <i class='bx bxs-calendar-check'></i>
+                                <span class="text"><a href="">
+                                    <h3>{{ cat }}</h3>
+                                    <p>Category</p>
+                                    </a>
+                                    <a href="/category/"><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:blue;"></i></a>
+                                    </a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class='bx bxs-calendar-check'></i>
+                                <span class="text">
+                                    <h3>{{ subcategory }}</h3>
+                                    <p>Sub-Category</p>
+                                    <a href="/subcategory/"><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:blue;"></i></a>
+                                    </a>
+
+                                </span>
+                            </li>
+                            <li>
+                                <i class='bx bxs-group'></i>
+                                <span class="text">
+                                    <h3>10</h3>
+                                    <p>Doctor Wise Registration</p>
+                                    <a href="/doctorlist/"><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:blue;"></i></a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class='bx bxs-group'></i>
+                                <span class="text">
+                                    <h3>20</h3>
+                                    <p>Medical Wise Registration</p>
+                                    <a href="/medicallist/"><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:blue;"></i></a>
+                                    
+                                </span>
+                            </li>
+                            <li>
+                                <i class='bx bxs-dollar-circle'></i>
+                                <span class="text">
+                                    <h3>10</h3>
+                                    <p>Product</p>
+                                    <a href="/productlist/"><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:blue;"></i></a>
+                                    
+                                </span>
+                            </li>
+                            <li>
+                                <i class='bx bxs-dollar-circle'></i>
+                                <span class="text">
+                                    <h3>10000</h3>
+                                    <p>Doctor wise sales</p>
+                                    <a href="/doctorwisesaleslist/"><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:blue;"></i></a>
+                                    
+                                </span>
+                            </li>
+                            <li>
+                                <i class='bx bxs-dollar-circle'></i>
+                                <span class="text">
+                                    <h3>10000</h3>
+                                    <p>Medical wise sales</p>
+                                    <a href="/medicalwisesaleslist/"><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:blue;"></i></a>
+                                    
+                                </span>
+                            </li>
+                        </ul>
+                    </main>
+                </section>
+        
+{% endblock %}

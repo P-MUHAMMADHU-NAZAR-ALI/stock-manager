@@ -1,0 +1,58 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Update Medical</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}"/>  
+</head>  
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">  
+    <form method="POST" class="post-form" action="/medical_update/{{medical.id}}/" style="height: 450px; width: 500px; border-style: ridge; padding: 20px; box-sizing: border-box;">  
+        {% csrf_token %}  
+        <div class="container">  
+            <br>  
+            <div class="form-group row" style="display: flex; margin-top: 0px;">  
+                <div class="col-sm-4" style="text-align: center; width: 100%;">  
+                    <h3>Update Details</h3>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Medical name:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <input type="text" name="medicalname" required maxlength="50" value="{{medical.medicalname }}" style="font-size: 15px; width: 100%;"/>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Gst no:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <input type="text" name="gstno" required maxlength="50" value="{{medical.gstno }}" style="font-size: 15px; width: 100%;"/>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Phone no:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <input type="text" name="phoneno" required maxlength="50" value="{{medical.phoneno }}" style="font-size: 15px; width: 100%;"/>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Email id:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <input type="text" name="gmail" required maxlength="50" value="{{medical.gmail }}" style="font-size: 15px; width: 100%;"/>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; margin-bottom: 15px;">  
+                <label class="col-sm-3 col-form-label" style="font-size: 20px; margin-right: 10px;">Address:</label>  
+                <div class="col-sm-2" style="width: auto;">  
+                    <input type="text" name="address" required maxlength="50" value="{{medical.address}}" style="font-size: 15px; width: 100%;"/>  
+                </div>  
+            </div>  
+            <div class="form-group row" style="display: flex; justify-content: center; margin-bottom: 15px;">  
+                <label class="col-sm-1 col-form-label"></label>  
+                <div class="col-sm-4" style="text-align: center; width: 100%;">  
+                    <button type="submit" class="btn btn-success" style="display: block;  width: 90px; height:30px; margin-left: 140px;">Update</button>  
+                </div>  
+            </div>  
+        </div>  
+    </form>  
+</body>  
+</html>

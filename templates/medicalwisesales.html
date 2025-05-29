@@ -1,0 +1,43 @@
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+            
+                <form action="/medicalwisesales/" method = "POST" style="height:480px;width:660px;border-style:ridge;border-radius:20px; margin-top:20px;margin-left:300px;">
+                    {%csrf_token%}
+                    <div class="form-group" style="margin-left:20px;" >
+                        <a href="{% url 'medicalwisesaleslist'%}" style="color:white;"><button class="btn-hover color-3" style="width:190px;margin-left:420px;">Medical Wise Sales List</a></button>
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="margin-left:20px;">Medical Name:</label>
+                        <select  id="" class="form-control" style="font-size:15px;margin-left:20px;width:600px;" name="medicalname">
+                            <option value="">select</option>
+                            {%for i in medical%}
+                              <option value="{{ i.id }}">{{ i.medicalname }}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for=""style="margin-left:20px;">Product Name:</label>
+                        <select id="" class="form-control" style="font-size:15px;margin-left:20px;width:600px;" name="productname">
+                            <option value="">select</option>
+                            {%for i in product%}
+                              <option value="{{ i.id }}">{{ i.productname }}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="margin-left:20px;">quantity:</label>
+                        <input type="text" class="form-control" placeholder="enter the quantity" style="margin-left:20px;width:600px;" name="quantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="margin-left:20px;">Price:</label>
+                        <input type="text" class="form-control" placeholder="enter the Price" style="margin-left:20px;width:600px;" name="price">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn-hover color-5" type="submit" style="width:150px;margin-left:220px;">SAVE</button>
+                    </div>
+                </form>
+    
+{% endblock %}
+
+    
